@@ -1,0 +1,30 @@
+{
+  "name": "card-image-bot",
+  "version": "1.0.0",
+  "description": "A discord bot for information about Dominion cards.",
+  "main": "src/index.js",
+  "dependencies": {
+    "discord.js": "^11.2.1",
+    "request": "^2.87.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SkyHawkB/dominion-card-info.git"
+  },
+  "keywords": [
+    "bot",
+    "discord",
+    "dominion",
+    "image"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SkyHawkB/dominion-card-info/issues"
+  },
+  "homepage": "https://github.com/SkyHawkB/dominion-card-info#readme"
+}
