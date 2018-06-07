@@ -32,3 +32,5 @@ client.on('message', (message) => {
     } catch(e) {}
   }
 });
+
+client.login(config.token);
