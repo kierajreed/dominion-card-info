@@ -3,26 +3,29 @@ const client = new Discord.Client();
 const config = require('./config.json');
 const cards = require('./cardtexts.json');
 
-const request = require('request');
+const colors = require('colors');
 const fs = require('fs');
+
+fs.readdir('./commands', (err, files) => {
+  for(let file of files) {
+    // Add the file to the require() cache.
+    const _ = require(`./commands/${file}`);
+  }
+});
 
 
 client.on('error', (error) => {});
 client.once('ready', () => {
-  console.log('Connected to Discord!');
+  console.log('\nConnected to Discord!'.green);
 });
 
 client.on('message', (message) => {
-  if(message.author.bot || message.content.indexOf(config.prefix) !== 0) {
-    return;
-  }
+  if(message.author.bot || !message.content.startsWith(config.prefix)) return;
 
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
-  if(command.includes('/') || command.includes('\\')) {
-    return;
-  }
+  if(command.includes('/') || command.includes('\\')) return;
 
   if(fs.existsSync(`./commands/${command}.js`)) {
     try {
